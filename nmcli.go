@@ -2,8 +2,9 @@ package nmcli_go
 
 import (
 	"context"
-	"github.com/KunMengcode/nmcli-go/connection"
 	"os/exec"
+
+	"github.com/KunMengcode/nmcli-go/connection"
 
 	"github.com/KunMengcode/nmcli-go/device"
 
@@ -27,6 +28,7 @@ type Connection interface {
 	Up(ctx context.Context, ID string, args connection.UpOptions) (string, error)
 	Show(ctx context.Context, ConnId string) (map[string][][]string, error)
 	Modify(ctx context.Context, temporary bool, ID string, option map[string]string) (string, error)
+	GetConnectionType(ctx context.Context, network string) (string, error)
 }
 
 type NMCli struct {
